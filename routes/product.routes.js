@@ -3,9 +3,10 @@ import { uploadImage } from "../middlewares/upload.middlewares.js";
 
 const productRoutes = Router();
 
-productRoutes.post("/", uploadImage, (req, res) => {
+productRoutes.post("/", uploadImage("avatar"), (req, res) => {
+  console.log(req.body);
   res.status(201).json({
-    image: "http://localhost:4000/" + req.body.image,
+    msg: "http://localhost:4000/uploads" + req.body.avatar,
   });
 });
 

@@ -13,7 +13,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(helmet());
 app.use(morgan("dev"));
-app.use(express.static(path.join(path.resolve(), "src", "uploads")));
+app.use(
+  "/uploads",
+  express.static(path.join(path.resolve(), "src", "uploads"))
+);
 
 //  Routes
 app.use("/products", productRoutes);
